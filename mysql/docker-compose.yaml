@@ -2,6 +2,7 @@ services:
   mysql:
     image: mysql
     container_name: mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: campus_connect
