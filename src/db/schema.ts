@@ -25,6 +25,7 @@ export const usersTable = mysqlTable("users_table", {
   created_at: datetime()
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
+  refreshToken: varchar({ length: 255 }),
 });
 
 export const noticeTable = mysqlTable("notice_table", {

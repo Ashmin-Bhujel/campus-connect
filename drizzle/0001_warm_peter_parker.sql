@@ -1,0 +1,1 @@
+ALTER TABLE `users_table` ADD `refreshToken` varchar(255);
