@@ -21,11 +21,11 @@ export const usersTable = mysqlTable("users_table", {
   address: varchar({ length: 255 }).notNull(),
   contact_no: varchar({ length: 255 }).notNull(),
   dob: varchar({ length: 255 }).notNull(),
-  role: mysqlEnum(["student", "admin"]),
+  role: mysqlEnum(["student", "admin"]).notNull(),
   created_at: datetime()
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
-  refreshToken: varchar({ length: 255 }),
+  refresh_token: varchar({ length: 255 }).default(""),
 });
 
 export const noticeTable = mysqlTable("notice_table", {

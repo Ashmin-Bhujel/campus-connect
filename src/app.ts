@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { APIResponse } from "./utils/apiResponse";
 import { APIError } from "./utils/apiError";
+import userRouter from "./routes/user.route";
 
 // Environment variables
 config();
@@ -34,6 +35,9 @@ app.get("/", (_, res: Response) => {
       )
     );
 });
+
+// Routes
+app.use("/api/v1/user", userRouter);
 
 // Handle 404 undefined routes
 app.use((_, res: Response) => {

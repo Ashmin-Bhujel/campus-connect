@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "dcd3df7d-5c89-4cc2-a947-32726cfe7327",
+  "id": "c39aff54-45c1-4f81-a223-0fdea45569a4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "notice_table": {
@@ -141,7 +141,7 @@
           "name": "role",
           "type": "enum('student','admin')",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "created_at": {
@@ -151,6 +151,14 @@
           "notNull": true,
           "autoincrement": false,
           "default": "CURRENT_TIMESTAMP"
+        },
+        "refresh_token": {
+          "name": "refresh_token",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "''"
         }
       },
       "indexes": {},

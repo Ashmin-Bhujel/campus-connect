@@ -19,8 +19,9 @@ CREATE TABLE `users_table` (
 	`address` varchar(255) NOT NULL,
 	`contact_no` varchar(255) NOT NULL,
 	`dob` varchar(255) NOT NULL,
-	`role` enum('student','admin'),
+	`role` enum('student','admin') NOT NULL,
 	`created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`refresh_token` varchar(255) DEFAULT '',
 	CONSTRAINT `users_table_id` PRIMARY KEY(`id`),
 	CONSTRAINT `users_table_email_unique` UNIQUE(`email`)
 );
