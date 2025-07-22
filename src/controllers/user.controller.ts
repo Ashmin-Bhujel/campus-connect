@@ -9,7 +9,7 @@ import {
   generateAccessToken,
   generateRefreshToken,
 } from "../utils/tokenGenerator";
-import { comparePassword } from "../utils/passwordHasher";
+import { comparePassword, hashPassword } from "../utils/passwordHasher";
 import { CookieOptions } from "express";
 import { config } from "dotenv";
 
@@ -114,7 +114,7 @@ const createUser = asyncHandler(async (req, res) => {
   const newUser: UserInsert = {
     fullname: req.body?.fullname,
     email: req.body?.email,
-    password: req.body?.password,
+    password: await hashPassword(req.body?.password),
     roll_no: req.body?.roll_no,
     programme: req.body?.programme,
     semester: req.body?.semester,
@@ -216,4 +216,4 @@ const loginUser = asyncHandler(async (req, res) => {
     );
 });
 
-export { createUser };
+export { createUser, loginUser };
