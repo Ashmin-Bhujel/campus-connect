@@ -4,7 +4,7 @@ import { UserSelect } from "./user.type";
 declare global {
   namespace Express {
     interface Request {
-      user?: Omit<UserSelect, "password" | "refreshToken">;
+      user?: Omit<UserSelect, "password" | "refresh_token">;
     }
   }
 }

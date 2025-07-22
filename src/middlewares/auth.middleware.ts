@@ -34,9 +34,9 @@ const verifyJWT = asyncHandler(async (req, _, next) => {
     ) as JwtPayload;
 
     // Get user from database
-    const { password, refreshToken, ...remainingColumns } =
+    const { password, refresh_token, ...remainingColumns } =
       getTableColumns(usersTable);
-    const response: Omit<UserSelect, "password" | "refreshToken">[] = await db
+    const response: Omit<UserSelect, "password" | "refresh_token">[] = await db
       .select({ ...remainingColumns })
       .from(usersTable)
       .where(eq(usersTable.id, decodedAccessToken.id));
